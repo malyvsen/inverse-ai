@@ -1,0 +1,3 @@
+[submodule "paragraph-vectors"]
+	path = paragraph-vectors
+	url = git@github.com:inejc/paragraph-vectors.git
