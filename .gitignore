@@ -89,6 +89,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+inverse-ai-venv/
 
 # Spyder project settings
 .spyderproject
