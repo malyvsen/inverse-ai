@@ -1,3 +1,6 @@
 [submodule "paragraph-vectors"]
 	path = paragraph-vectors
 	url = git@github.com:inejc/paragraph-vectors.git
+[submodule "ai/gan-pretrained-pytorch"]
+	path = ai/gan-pretrained-pytorch
+	url = https://github.com/csinva/gan-pretrained-pytorch.git
