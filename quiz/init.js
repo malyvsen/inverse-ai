@@ -15,8 +15,8 @@ var asked = [];
 
     let batches = [];
     let batchSize = 4;
-    for (let i = 0; i < movies.length / batchSize; i += batchSize) {
-      batches.push(movies.slice(i, i + 4));
+    for (let i = 0; i < movies.length; i += batchSize) {
+      batches.push(movies.slice(i, i + batchSize));
     }
 
     toAsk = batches.map(batch => {return {options: batch, target: chance.pickone(batch)}});
