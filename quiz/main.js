@@ -8,14 +8,14 @@ function askQuestion() {
     <img src="${question.target.img}" id="image">
   `;
   for (const movie of question.options) {
-    mainArea().innerHTML += optionSection(movie.title, movie.plot);
+    mainArea().innerHTML += optionSection(movie);
   }
 }
 
 
-function checkAnswer(title) {
+function checkAnswer(answerID) {
   let lastAsked = asked[asked.length - 1];
-  lastAsked.correct = title == lastAsked.target.title;
+  lastAsked.correct = answerID == lastAsked.target.id;
 
   mainArea().innerHTML = '';
   mainArea().innerHTML += `
@@ -32,11 +32,11 @@ function checkAnswer(title) {
 }
 
 
-function optionSection(title, plot) {
+function optionSection(movie) {
   return `
     <hr>
-    <button onclick="checkAnswer('${title}')">${title}</button>
-    <p>${plot}</p>
+    <button onclick="checkAnswer(${movie.id})">${movie.title}</button>
+    <p>${movie.plot}</p>
   `;
 }
 

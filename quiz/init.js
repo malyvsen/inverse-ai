@@ -6,6 +6,7 @@ var asked = [];
 (() => {
   function onComplete(results, file) {
     movies = results.data.slice(0, -1).map((movie, id) => ({
+      id: id,
       title: movie.title,
       plot: movie.plot,
       img: '../ai/generated/' + id + '.png'})
