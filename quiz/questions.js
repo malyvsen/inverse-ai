@@ -29,7 +29,7 @@ function checkAnswer(answerID) {
   `;
   mainArea().innerHTML += toAsk.length > 0 ?
   `<button onclick="askQuestion()">Continue</button>` :
-  `<button onclick="finish()">Finish quiz</button>`;
+  `<button onclick="finish()">Finish & download results</button>`;
 }
 
 

@@ -1,16 +1,17 @@
 function finish() {
+  download(JSON.stringify(asked), 'results.json', 'text/plain')
+
+  mainArea().innerHTML = `
+  <h1>It's done!</h1>
+  <p>Thanks for your time.
+  Your results have been downloaded - I'll need you to send them to me to include you in the study.</p>
+  `;
+
   let correctness = asked.map(question => question.correct);
   let accuracy = [];
   correctness.reduce((a, b, id) => accuracy[id] = a + b, 0);
   accuracy = accuracy.map((v, id) => v / (id + 1));
   beatChance = accuracy[accuracy.length - 1] > 1/batchSize;
-
-  mainArea().innerHTML = `
-  <h1>It's done!</h1>
-  <p>Thanks for your time.
-  <a href="${downloadLink(asked)}" download="results.json">Click here</a>
-  to download your results - I'll need you to send them to me to include you in the study.</p>
-  `;
 
   if (beatChance) {
     mainArea().innerHTML += `
@@ -27,12 +28,6 @@ function finish() {
   mainArea().innerHTML += `<div id="chart" style="width:100%; height:400px;"></div>`;
 
   accuracyChart(accuracy);
-}
-
-
-function downloadLink(obj) {
-  var blob = new Blob([JSON.stringify(obj)], {type: 'text/plain'});
-  return (window.webkitURL || window.URL).createObjectURL(blob);
 }
 
 
