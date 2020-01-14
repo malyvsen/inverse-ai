@@ -1,3 +1,5 @@
+const batchSize = 4;
+
 var movies = [];
 var toAsk = [];
 var asked = [];
@@ -14,7 +16,6 @@ var asked = [];
     movies = chance.shuffle(movies);
 
     let batches = [];
-    let batchSize = 4;
     for (let i = 0; i < movies.length; i += batchSize) {
       batches.push(movies.slice(i, i + batchSize));
     }

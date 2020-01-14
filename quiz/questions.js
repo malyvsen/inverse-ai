@@ -5,6 +5,7 @@ function askQuestion() {
   mainArea().innerHTML = '';
   mainArea().innerHTML += `
     <h1>What movie is this?</h1>
+    <p>Question ${asked.length} of ${toAsk.length + asked.length}</p>
     <img src="${question.target.img}" id="image">
   `;
   for (const movie of question.options) {
@@ -26,9 +27,9 @@ function checkAnswer(answerID) {
     <p>This was <b>${lastAsked.target.title}</b>.</p>
     <p>${lastAsked.target.plot}</p>
   `;
-  mainArea().innerHTML += `
-    <button onclick="askQuestion()">Continue</button>
-  `;
+  mainArea().innerHTML += toAsk.length > 0 ?
+  `<button onclick="askQuestion()">Continue</button>` :
+  `<button onclick="finish()">Finish quiz</button>`;
 }
 
 
